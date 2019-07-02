@@ -18,6 +18,7 @@ class _DemoPageState extends State<DemoPage> {
       backgroundColor: Colors.blue,
       //标题栏
       appBar: new AppBar(
+        //这个title是一个widget
         title: new Text("Title"),
       ),
       //正式的页面开始
@@ -29,5 +30,23 @@ class _DemoPageState extends State<DemoPage> {
         itemCount: 20,
       ),
     );
+  }
+
+  request() async {
+    await Future.delayed(Duration(seconds: 1));
+    return "ok";
+  }
+
+  doSomeThing() async {
+    String data = await request();
+    data = "ok from request";
+    return data;
+  }
+
+  renderSome() {
+    doSomeThing().then((value) {
+      //打印ok from request
+      print(value);
+    });
   }
 }
