@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/widget/NewRoute.dart';
 
 class DemoItem extends StatelessWidget {
 
@@ -10,7 +11,11 @@ class DemoItem extends StatelessWidget {
       child: new Card(
         //增加点击效果
         child: new FlatButton(
-            onPressed: (){print("点击了哦！");},
+            onPressed: (){
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new NewRoute();
+              }));
+            },
             child: new Padding(
               padding: new EdgeInsets.only(left: 0.0, top: 10.0, right: 10.0, bottom: 10.0),
               child: new Column(
