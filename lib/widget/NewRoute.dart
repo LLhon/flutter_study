@@ -17,8 +17,9 @@ class _NewRouteState extends State<NewRoute> {
       appBar: AppBar(
         title: Text("New Route"),
       ),
-      body: Row(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           RaisedButton(
             onPressed: () { print("click"); },
@@ -43,14 +44,39 @@ class _NewRouteState extends State<NewRoute> {
             activeColor: Colors.red,
             onChanged: (value) {
               //重新构建页面
-              _checkboxSelected = value;
+              setState(() {
+                _checkboxSelected = value;
+              });
             },
           ),
           Image.network(
             "https://avatars2.githubusercontent.com/u/20411648?s=460&v=4",
             width: 100.0,
           ),
-          Icon(Icons.android, color: Colors.black,)
+          Icon(Icons.android, color: Colors.black,),
+          TextField(
+            decoration: InputDecoration(
+              labelText: "password",
+              hintText: "请输入密码",
+              prefixIcon: Icon(Icons.lock),
+            ),
+            obscureText: true,
+          ),
+          Container(
+            child: TextField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: "Email",
+                hintText: "电子邮件地址",
+                prefixIcon: Icon(Icons.email),
+                border: InputBorder.none, //隐藏下划线
+              ),
+            ),
+            decoration: BoxDecoration(
+              //下划线浅灰色，宽度1个像素
+              border: Border(bottom: BorderSide(color: Colors.grey[200], width: 1.0))
+            ),
+          )
         ],
       ),
     );
