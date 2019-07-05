@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/widget/FlexLayoutTestRoute.dart';
 
 class NewRoute extends StatefulWidget {
 
@@ -22,7 +23,11 @@ class _NewRouteState extends State<NewRoute> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           RaisedButton(
-            onPressed: () { print("click"); },
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new FlexLayoutTestRoute();
+              }));
+            },
             color: Colors.blue,
             highlightColor: Colors.blue[700],
             colorBrightness: Brightness.dark,
