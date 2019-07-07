@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study/widget/FlexLayoutTestRoute.dart';
+import 'package:flutter_study/widget/FlowLayoutTestRoute.dart';
 
 class NewRoute extends StatefulWidget {
 
@@ -32,7 +33,20 @@ class _NewRouteState extends State<NewRoute> {
             highlightColor: Colors.blue[700],
             colorBrightness: Brightness.dark,
             splashColor: Colors.grey,
-            child: Text("submit"),
+            child: Text("弹性布局Flex"),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          ),
+          RaisedButton(
+            onPressed: () {
+              Navigator.push(context, new MaterialPageRoute(builder: (context) {
+                return new FlowLayoutTestRoute();
+              }));
+            },
+            color: Colors.amber,
+            highlightColor: Colors.amber[700],
+            colorBrightness: Brightness.dark,
+            splashColor: Colors.grey,
+            child: Text("流式布局Flow"),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
           ),
           Switch(
